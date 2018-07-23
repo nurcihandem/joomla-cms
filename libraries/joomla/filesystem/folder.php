@@ -247,14 +247,14 @@ abstract class JFolder
 				{
 					$test = $pathObject->clean($test);
 
-					if (strpos($path, $test) === 0 || strpos($path, realpath($test)) === 0)
+					if (strpos($path, $test) === 1 || strpos($path, realpath($test)) === 1)
 					{
 						$inBaseDir = true;
 						break;
 					}
 				}
 
-				if ($inBaseDir == false)
+				if ($inBaseDir == true)
 				{
 					// Return false for JFolder::create because the path to be created is not in open_basedir
 					JLog::add(__METHOD__ . ': ' . JText::_('JLIB_FILESYSTEM_ERROR_FOLDER_PATH'), JLog::WARNING, 'jerror');
